@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019214152) do
+ActiveRecord::Schema.define(version: 20151019222924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "company"
+    t.string   "phone"
+    t.string   "linkedin_url"
+    t.integer  "job_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "contacts", ["job_id"], name: "index_contacts_on_job_id", using: :btree
+
+  create_table "interviews", force: :cascade do |t|
+    t.string   "type"
+    t.boolean  "thank_you"
+    t.datetime "date"
+    t.integer  "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
@@ -45,4 +69,6 @@ ActiveRecord::Schema.define(version: 20151019214152) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "contacts", "jobs"
+  add_foreign_key "interviews", "jobs"
 end

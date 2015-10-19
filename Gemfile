@@ -15,6 +15,7 @@ gem 'pg'
 gem 'pry-rails', :group => [:development, :test]
 gem 'puma'
 gem 'rails', '~> 4.2.4'
+gem 'rubocop'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'uglifier', '>= 1.3.0'

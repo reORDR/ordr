@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
   resources :jobs do
+    resources :contacts
     get :deleted_index, on: :collection
     member do
       get 'content'

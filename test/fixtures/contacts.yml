@@ -2,14 +2,16 @@
 
 one:
   name: MyString
-  company: MyString
   email: MyString
+  company: MyString
   phone: MyString
   linkedin_url: MyString
+  job_id: 
 
 two:
   name: MyString
-  company: MyString
   email: MyString
+  company: MyString
   phone: MyString
   linkedin_url: MyString
+  job_id: 
