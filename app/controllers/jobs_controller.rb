@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_filter :check_authorization
+  before_filter :authenticate_user!
   before_action :set_job, except: [:index, :new, :create, :deleted_index]
 
   def index
@@ -50,15 +50,6 @@ class JobsController < ApplicationController
     render 'jobs/content_edit', locals: {step: params[:step]}
   end
 
-
-  def content
-    render 'jobs/content_view', locals: {step: params[:step]}
-  end
-
-  def content_edit
-    render 'jobs/content_edit', locals: {step: params[:step]}
-  end
-
   def new_network
     @job.networks.create
     redirect_to @job
@@ -83,9 +74,5 @@ private
 
   def job_params
     params.require(:job).permit!
-  end
-
-  def check_authorization
-    @job ? authorize(@job.user) : authorize()
   end
 end
