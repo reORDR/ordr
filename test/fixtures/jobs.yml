@@ -1,0 +1,20 @@
+scott_job:
+  title: Developer
+  company_name: Netflix
+  url: www.example.com
+  due_date: <%= DateTime.now %>
+  user: scott
+
+garrett_job:
+  title: Developer
+  company_name: Netflix
+  url: www.example.com
+  due_date: <%= DateTime.now %>
+  user: garrett
+
+mary_job:
+  title: Developer
+  company_name: Netflix
+  url: www.example.com
+  due_date: <%= DateTime.now %>
+  user: mary
