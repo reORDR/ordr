@@ -106,6 +106,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.1)
@@ -141,6 +142,12 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.18.3)
+    pry (0.10.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     puma (2.14.0)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -195,6 +202,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    slop (3.6.0)
     spring (1.4.0)
     sprockets (2.12.4)
       hike (~> 1.2)
@@ -241,6 +249,7 @@ DEPENDENCIES
   omniauth
   omniauth-linkedin
   pg
+  pry-rails
   puma
   rails (~> 4.2.4)
   rails_12factor
