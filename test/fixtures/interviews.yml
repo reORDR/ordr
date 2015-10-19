@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  thank_you: false
+  date: 2015-10-19 15:29:27
+  job_id: 
+
+two:
+  type: 
+  thank_you: false
+  date: 2015-10-19 15:29:27
+  job_id: 
