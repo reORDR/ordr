@@ -12,6 +12,7 @@ gem 'newrelic_rpm'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 gem 'pg'
+gem 'pry-rails', :group => [:development, :test]
 gem 'puma'
 gem 'rails', '~> 4.2.4'
 gem 'rubocop'
