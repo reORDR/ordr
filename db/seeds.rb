@@ -88,15 +88,25 @@ jobs.each do |job|
   job.contacts.create!(matz)
 end
 
+# - - - Research - - -
+
+research = {
+  company_mission: 'Do good and change the world',
+  company_goals: 'Make a lot of money and then give it all away',
+  current_projects: 'Killer appz',
+  done: true
+}
+jobs.each { |job| job.create_research!(research) }
+
+
 # - - - Interviews - - -
 
-jobs.each do |job|
-  job.interviews.create!(
-    format: 'Phone',
-    thank_you: false,
-    date: 10.days.from_now
-  )
-end
+interview = {
+  format: 'Phone',
+  thank_you: false,
+  date: 10.days.from_now
+}
+jobs.each { |job| job.create_interview!(interview) }
 
 # - - - Networks - - -
 
