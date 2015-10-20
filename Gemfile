@@ -26,6 +26,7 @@ group :development do
   gem 'haml-rails'
   gem 'html2haml'
   gem 'spring'
+  gem "rails-erd"
 end
 
 group :test do

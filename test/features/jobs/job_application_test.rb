@@ -1,13 +1,14 @@
 require 'test_helper'
 
-feature 'When a user visits their dashboard they can see all their jobs' do
-  scenario "users cannot see other users jobs" do
+feature 'When a user visits a job they can see when they applied' do
+  scenario "marking a job applied" do
     visit root_path
     fill_in 'user_email', with: users(:mary).email
     fill_in 'user_password', with: "password"
     click_button('Log in')
-    page.text.must_include('Cat Wrangler')
-    page.text.wont_include('Saxophone Developer')
+    click_on("Cat Wrangler")
+    click_on("Apply")
+    page.text.must_include('Sent')
   end
 
   scenario "should see all jobs on dashboard" do
