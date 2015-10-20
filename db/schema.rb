@@ -78,15 +78,6 @@ ActiveRecord::Schema.define(version: 20151020183716) do
 
   add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
-  create_table "researches", force: :cascade do |t|
-    t.integer "job_id"
-    t.text    "company_mission"
-    t.text    "company_goals"
-    t.text    "current_projects"
-    t.boolean "done"
-  end
-
-  add_index "researches", ["job_id"], name: "index_researches_on_job_id", using: :btree
   create_table "networks", force: :cascade do |t|
     t.boolean  "plans",      default: false
     t.date     "date"
@@ -97,6 +88,16 @@ ActiveRecord::Schema.define(version: 20151020183716) do
   end
 
   add_index "networks", ["job_id"], name: "index_networks_on_job_id", using: :btree
+
+  create_table "researches", force: :cascade do |t|
+    t.integer "job_id"
+    t.text    "company_mission"
+    t.text    "company_goals"
+    t.text    "current_projects"
+    t.boolean "done"
+  end
+
+  add_index "researches", ["job_id"], name: "index_researches_on_job_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -116,7 +117,7 @@ ActiveRecord::Schema.define(version: 20151020183716) do
 
   add_foreign_key "contacts", "jobs"
   add_foreign_key "interviews", "jobs"
-  add_foreign_key "researches", "jobs"
   add_foreign_key "job_applications", "jobs"
   add_foreign_key "networks", "jobs"
+  add_foreign_key "researches", "jobs"
 end

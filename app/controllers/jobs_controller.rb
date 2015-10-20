@@ -76,6 +76,6 @@ private
   end
 
   def job_params
-    params.require(:job).permit(research_attributes:[:company_mission, :company_goals, :current_projects])
+    params.require(:job).permit!
   end
 end
