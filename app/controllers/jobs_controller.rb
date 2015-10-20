@@ -19,7 +19,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
-    @job.document = Document.new
+    @job.build_document
     @job.job_application = JobApplication.new
     if @job.save
       redirect_to @job, notice: 'Job was successfully created.'

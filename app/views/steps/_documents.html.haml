@@ -8,12 +8,14 @@
     = link_to content_edit_job_path({step: 'documents'}) do
       %button.add_button
         = image_tag "edit_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'documents'}) do
-      %button.add_button
+    = link_to content_job_path({step: 'documents'}) do
+      %button.add_button#add_note
         = image_tag "add_note_icon.svg", size: "20"
     = link_to content_edit_job_path({step: 'documents'}) do
       %button.add_button
         = image_tag "add_contact_icon.svg", size: "20"
+
+= render 'notes/form', notable: @job.document
 
 %section.step_content
   %h2 Document Checklist

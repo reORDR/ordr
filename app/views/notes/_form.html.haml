@@ -1,13 +1,14 @@
-= form_for @note do |f|
-  - if @note.errors.any?
+- note = @job.document.notes.new
+= form_for note, url: notes_path(@job.document, note), class: 'document_note_form' do |f|
+  - if note.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@note.errors.count, "error")} prohibited this note from being saved:"
+      %h2= "#{pluralize(note.errors.count, "error")} prohibited this note from being saved:"
       %ul
-        - @note.errors.full_messages.each do |msg|
+        - note.errors.full_messages.each do |msg|
           %li= msg
 
   .field
-    = f.label :content
-    = f.text_field :content
+    = f.label 'Note'
+    = f.text_field :body
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save Note', class: 'primary_button', id: 'save_note'
