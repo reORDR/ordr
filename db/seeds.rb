@@ -97,3 +97,13 @@ jobs.each do |job|
     date: 10.days.from_now
   )
 end
+
+# - - - Networks - - -
+
+jobs.each do |job|
+  job.networks.create!(
+    plans: true,
+    date: 10.days.from_now,
+    done: false
+  )
+end
