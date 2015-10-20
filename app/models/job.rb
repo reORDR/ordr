@@ -7,8 +7,6 @@ class Job < ActiveRecord::Base
   has_one :interview
   has_one :document
 
-  # validates :document, presence: true
-
   accepts_nested_attributes_for :research
   accepts_nested_attributes_for :document
   accepts_nested_attributes_for :job_application

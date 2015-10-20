@@ -19,11 +19,11 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
-    @job.document = Document.new
-    @job.job_application = JobApplication.new
-    @job.interview = Interview.new
-    @job.create_research
     if @job.save
+      @job.document = Document.new
+      @job.job_application = JobApplication.new
+      @job.interview = Interview.new
+      @job.research = Research.new
       redirect_to @job, notice: 'Job was successfully created.'
     else
       render :new
