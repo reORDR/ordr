@@ -15,18 +15,21 @@
       %button.add_button
         = image_tag "add_contact_icon.svg", size: "20"
 
-%section.step_content
-  %label Did / do you plan to discuss this position with someone?
+%article.outer_container
+  %section.step_content
 
-  = form_for @job do |g|
-    = g.fields_for @job.network do |f|
-      = f.radio_button(:plans, 'no')
+    = form_for @job.network, url: job_network_path(@job, @job.network) do |f|
+      = hidden_field_tag :success_redirect, content_job_path(@job, step: :networking)
+      = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :networking)
+      %label Did / do you plan to discuss this position with someone?
+
+      = f.radio_button(:plans, false)
       = f.label :plans_no, 'No'
-      = f.radio_button(:plans, 'yes')
+      = f.radio_button(:plans, true)
       = f.label :plans_yes, 'Yes'
       %br
 
       = f.label :date, 'Meeting Date'
       = f.date_field :date
 
-      = g.submit 'Save', { class: 'primary_button' }
+      = f.submit 'Save', { class: 'primary_button' }

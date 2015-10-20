@@ -32,7 +32,6 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      #FIXME update success should render step
       render 'jobs/content_view', notice: 'Job was successfully updated.', locals: {step: params[:step]}
     else
       render :edit
@@ -51,16 +50,6 @@ class JobsController < ApplicationController
 
   def content_edit
     render 'jobs/content_edit', locals: {step: params[:step]}
-  end
-
-  def new_network
-    @job.networks.create
-    redirect_to @job
-  end
-
-  def new_interview
-    @job.interviews.create
-    render 'jobs/content_edit', locals: {step: params['interview']}
   end
 
   def deleted_index
