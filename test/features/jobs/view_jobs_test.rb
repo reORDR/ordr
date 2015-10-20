@@ -16,7 +16,7 @@ feature 'When a user visits their dashboard they can see all their jobs' do
     fill_in 'user_password', with: "password"
     click_button('Log in')
     page.text.must_include('Saxophone Developer')
-    page.text.must_include("Sweet Jams Developer")
+    page.text.must_include("Sweet Jams Architect")
   end
 
   scenario "Should be able to view job steps" do
@@ -28,14 +28,4 @@ feature 'When a user visits their dashboard they can see all their jobs' do
     page.text.must_include('Job Steps')
   end
 
-  scenario "Should be able to view job details" do
-    visit root_path
-    fill_in 'user_email', with: users(:mary).email
-    fill_in 'user_password', with: "password"
-    click_button('Log in')
-    click_on("Cat Wrangler")
-    page.text.must_include('Job Steps')
-    click_on ('Job Details')
-    page.text.must_include('Apply by')
-  end
 end

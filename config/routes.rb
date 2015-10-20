@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :jobs do
     resources :contacts
     resources :document
+    resources :job_application
     get :deleted_index, on: :collection
     member do
       get 'content'

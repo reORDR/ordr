@@ -19,17 +19,17 @@
   %section.step_content
     = form_for @job do |g|
       = g.fields_for @job.interview do |f|
-        = f.radio_button :type, 'phone'
-        = f.label :type_phone, "Phone Interview"
+        = f.radio_button :format, 'phone'
+        = f.label :format_phone, "Phone Interview"
         %br
-        = f.radio_button :type, 'video'
-        = f.label :type_video, "Video Interview"
+        = f.radio_button :format, 'video'
+        = f.label :format_video, "Video Interview"
         %br
-        = f.radio_button :type, 'person'
-        = f.label :type_person, "In-Person Interview"
+        = f.radio_button :format, 'person'
+        = f.label :format_person, "In-Person Interview"
         %br
-        = f.radio_button :type, 'other'
-        = f.label :type_other, "Other"
+        = f.radio_button :format, 'other'
+        = f.label :format_other, "Other"
         %br
         = f.label :date
         = f.date_field :date

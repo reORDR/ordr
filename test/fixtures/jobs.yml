@@ -6,7 +6,7 @@ scott_job:
   user: scott
 
 another_scott_job:
-  title: Sweet Jams Developer
+  title: Sweet Jams Architect
   company_name: Netflix
   url: www.example.com
   due_date: <%= DateTime.now %>
@@ -20,7 +20,7 @@ garrett_job:
   user: garrett
 
 another_garrett_job:
-  title: Better Idea Developer
+  title: Better Idea Engineer
   company_name: Netflix
   url: www.example.com
   due_date: <%= DateTime.now %>
@@ -34,7 +34,7 @@ mary_job:
   user: mary
 
 another_mary_job:
-  title: Cat Wrangler Wrangler
+  title: Bird Wrangler
   company_name: Netflix
   url: www.example.com
   due_date: <%= DateTime.now %>
