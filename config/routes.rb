@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :jobs do
     resources :contacts
+    resources :document
     get :deleted_index, on: :collection
     member do
       get 'content'
