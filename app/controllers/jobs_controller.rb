@@ -22,6 +22,7 @@ class JobsController < ApplicationController
     @job.document = Document.new
     @job.job_application = JobApplication.new
     @job.interview = Interview.new
+    @job.create_research
     if @job.save
       redirect_to @job, notice: 'Job was successfully created.'
     else
