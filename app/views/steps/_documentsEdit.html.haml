@@ -20,7 +20,9 @@
   %br
   %br
 
-  = form_for @job.document, url: job_document_path(@job, @job.document, {step: :documents}) do |f|
+  = form_for @job.document, url: job_document_path(@job, @job.document) do |f|
+    = hidden_field_tag :success_redirect, content_job_path(@job, step: :documents)
+    = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :documents)
     %ul
       %li
         = f.check_box :resume

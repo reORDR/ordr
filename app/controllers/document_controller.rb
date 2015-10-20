@@ -1,27 +1,28 @@
 class DocumentController < ApplicationController
   def update
     document = Document.find(params[:id])
-    @job = document.job
     if document.update(document_params)
-      redirect_to 'jobs/content_view',
+      redirect_to params[:success_redirect],
                   notice: 'Document was successfully updated'
     else
-      render @job
+      redirect_to params[:failure_redirect],
+                  alert: 'There was a problem updating the document'
     end
   end
 
   private
 
   def document_params
-    params.require(:document)
-          .permit(
-            :resume,
-            :cover_letter,
-            :portfolio,
-            :certifications,
-            :references,
-            :recommendations,
-            :done
-          )
+    params
+      .require(:document)
+      .permit(
+        :resume,
+        :cover_letter,
+        :portfolio,
+        :certifications,
+        :references,
+        :recommendations,
+        :done
+      )
   end
 end
