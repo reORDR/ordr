@@ -106,4 +106,14 @@ jobs.each do |job|
     date: 10.days.from_now,
     done: false
   )
-end
+
+network = {
+  plans: true,
+  date: 10.days.from_now,
+  done: false
+}
+jobs.each { |job| job.create_network!(network) }
+
+# - - - Job Applications - - -
+
+jobs.each { |job| job.create_job_application! }
