@@ -9,34 +9,23 @@ feature 'When a user visits a job they can see when they applied' do
     click_on("Cat Wrangler")
     click_on("Apply")
     page.text.must_include('Sent')
+    page.text.wont_include('Not sent')
   end
 
-  scenario "should see all jobs on dashboard" do
+  scenario "marking a job applied" do
     visit root_path
     fill_in 'user_email', with: users(:scott).email
     fill_in 'user_password', with: "password"
     click_button('Log in')
-    page.text.must_include('Saxophone Developer')
-    page.text.must_include("Sweet Jams Developer")
+    click_on("Saxophone Developer")
+    click_on("Apply")
+    page.text.must_include('Not sent')
+    click_on('Edit')
+    check('job_application_sent')
+    click_on("Save")
+    page.text.must_include('Sent')
+    page.text.wont_include('Not sent')
   end
 
-  scenario "Should be able to view job steps" do
-    visit root_path
-    fill_in 'user_email', with: users(:mary).email
-    fill_in 'user_password', with: "password"
-    click_button('Log in')
-    click_on("Cat Wrangler")
-    page.text.must_include('Job Steps')
-  end
 
-  scenario "Should be able to view job details" do
-    visit root_path
-    fill_in 'user_email', with: users(:mary).email
-    fill_in 'user_password', with: "password"
-    click_button('Log in')
-    click_on("Cat Wrangler")
-    page.text.must_include('Job Steps')
-    click_on ('Job Details')
-    page.text.must_include('Apply by')
-  end
 end
