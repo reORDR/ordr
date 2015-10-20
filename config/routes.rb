@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :job_application
     resources :interview
     resources :network
+    resources :research
     get :deleted_index, on: :collection
     member do
       get 'content'
