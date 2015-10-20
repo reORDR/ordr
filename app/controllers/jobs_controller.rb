@@ -32,9 +32,11 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      render 'jobs/content_view', notice: 'Job was successfully updated.', locals: {step: params[:step]}
+      redirect_to params[:success_redirect],
+                  notice: 'Job was successfully updated'
     else
-      render :edit
+      redirect_to params[:failure_redirect],
+                  alert: 'There was a problem updating the job'
     end
   end
 
@@ -65,6 +67,14 @@ private
   end
 
   def job_params
-    params.require(:job).permit!
+    params
+    .require(:job)
+    .permit(
+      :title,
+      :url,
+      :company_name,
+      :due_date,
+      :source
+      )
   end
 end
