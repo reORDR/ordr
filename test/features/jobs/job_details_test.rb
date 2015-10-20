@@ -7,9 +7,11 @@ feature 'User can view and edit job details' do
     fill_in 'user_password', with: "password"
     click_button('Log in')
     page.text.must_include('Cat Wrangler')
-    click_button('Edit')
-    fill_in 'job title', with: 'Web Dev'
-    click_button('Save')
+    click_on('Cat Wrangler')
+    click_on('Job Details')
+    click_on('Edit')
+    fill_in 'job_title', with: 'Web Dev'
+    click_on('Save')
     page.text.must_include('Job was successfully updated.')
     page.text.must_include('Web Dev')
   end
@@ -20,7 +22,7 @@ feature 'User can view and edit job details' do
     fill_in 'user_password', with: "password"
     click_button('Log in')
     page.text.must_include('Saxophone Developer')
-    click_button('Add Note')
+    click_on('Add Note')
     fill_in 'content', with: "I really want this job"
     click_button('Save')
     page.text.must_include('Note was successfully added.')

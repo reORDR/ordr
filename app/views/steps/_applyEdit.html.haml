@@ -17,12 +17,15 @@
 
 %article.outer_container
   %section.step_content
-    = form_for @job do |g|
-      = g.fields_for @job.job_application do |f|
+    = form_for @job.job_application, url: job_job_application_path(@job, @job.job_application) do |f|
+      = hidden_field_tag :success_redirect, content_job_path(@job, step: :apply)
+      = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :apply)
+      %ul
+        %li
         = f.check_box(:sent)
         = f.label :sent, t('job_steps.apply.sent')
         %li
           = f.label :date, 'When did you apply?'
           = f.date_field :date
 
-      = g.submit "Save", {class: 'primary_button'}
+      = f.submit "Save", {class: 'primary_button'}

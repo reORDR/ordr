@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020010543) do
+ActiveRecord::Schema.define(version: 20151020181536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,21 +46,21 @@ ActiveRecord::Schema.define(version: 20151020010543) do
 
   create_table "interviews", force: :cascade do |t|
     t.string   "format"
-    t.boolean  "thank_you"
+    t.boolean  "thank_you",  default: false
     t.datetime "date"
     t.integer  "job_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
 
   create_table "job_applications", force: :cascade do |t|
-    t.boolean  "sent"
+    t.boolean  "sent",       default: false
     t.date     "date"
     t.integer  "job_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "job_applications", ["job_id"], name: "index_job_applications_on_job_id", using: :btree
@@ -79,12 +79,12 @@ ActiveRecord::Schema.define(version: 20151020010543) do
   add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
   create_table "networks", force: :cascade do |t|
-    t.boolean  "plans"
+    t.boolean  "plans",      default: false
     t.date     "date"
-    t.boolean  "done"
+    t.boolean  "done",       default: false
     t.integer  "job_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "networks", ["job_id"], name: "index_networks_on_job_id", using: :btree
