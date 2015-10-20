@@ -33,12 +33,11 @@ feature 'When a user visits their dashboard they can see all their jobs' do
     fill_in 'user_email', with: users(:mary).email
     fill_in 'user_password', with: "password"
     click_button('Log in')
-    save_and_open_page
-    click_on('Add new job')
-    fill_in 'job_title', with: "Web Dev"
+    find(".toolbar a:first").click
+    fill_in 'Title', with: "Web Dev"
     fill_in 'Company name', with: "Big Tech"
     click_on 'Create Job'
-    page.text.must_include('Page was successfully created.')
+    page.text.must_include('Job was successfully created.')
   end
 
 end

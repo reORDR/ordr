@@ -22,6 +22,7 @@ class JobsController < ApplicationController
     @job.document = Document.new
     @job.job_application = JobApplication.new
     @job.interview = Interview.new
+    @job.network = Network.new
     if @job.save
       redirect_to @job, notice: 'Job was successfully created.'
     else
@@ -50,16 +51,6 @@ class JobsController < ApplicationController
 
   def content_edit
     render 'jobs/content_edit', locals: {step: params[:step]}
-  end
-
-  def new_network
-    @job.networks.create
-    redirect_to @job
-  end
-
-  def new_interview
-    @job.interviews.create
-    render 'jobs/content_edit', locals: {step: params['interview']}
   end
 
   def deleted_index

@@ -31,6 +31,15 @@ feature 'When a user visits a job they can see when they have interviews schedul
     fill_in 'user_email', with: users(:scott).email
     fill_in 'user_password', with: "password"
     click_button('Log in')
-    #finish me after we get add jobs working
+    find(".toolbar a:first").click
+    fill_in 'Title', with: "Web Dev"
+    fill_in 'Company name', with: "Big Tech"
+    click_on 'Create Job'
+    click_on 'Interview'
+    click_on('Edit')
+    choose('In-Person Interview')
+    # I don't know how to get capybara to fill in a date
+    click_on('Save')
+    page.text.must_include('person')
   end
 end
