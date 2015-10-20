@@ -17,7 +17,8 @@
 
 %section.step_content
   = form_for @job do |g|
-    = g.fields_for @job.research do |f|
+    = hidden_field_tag :step, :research
+    = g.fields_for :research, @job.research do |f|
       = f.label :company_mission, "Company's mission/vision/values"
       = f.text_area :company_mission
 

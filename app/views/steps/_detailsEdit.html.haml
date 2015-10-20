@@ -16,7 +16,9 @@
         = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
-  = form_for @job do |f|
+  = form_for @job, url: job_path(@job) do |f|
+    = hidden_field_tag :success_redirect, content_job_path(@job, step: :details)
+    = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :details)
     = f.label :title, 'Job Title'
     = f.text_field :title
     = f.label :url

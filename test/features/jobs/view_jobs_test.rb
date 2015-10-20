@@ -28,4 +28,16 @@ feature 'When a user visits their dashboard they can see all their jobs' do
     page.text.must_include('Job Steps')
   end
 
+  scenario "can create a job" do
+    visit root_path
+    fill_in 'user_email', with: users(:mary).email
+    fill_in 'user_password', with: "password"
+    click_button('Log in')
+    find(".toolbar a:first").click
+    fill_in 'Title', with: "Web Dev"
+    fill_in 'Company name', with: "Big Tech"
+    click_on 'Create Job'
+    page.text.must_include('Job was successfully created.')
+  end
+
 end

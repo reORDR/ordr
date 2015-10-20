@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 20151020194637) do
 
   add_index "notes", ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id", using: :btree
 
+  create_table "researches", force: :cascade do |t|
+    t.integer "job_id"
+    t.text    "company_mission"
+    t.text    "company_goals"
+    t.text    "current_projects"
+    t.boolean "done"
+  end
+
+  add_index "researches", ["job_id"], name: "index_researches_on_job_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -119,4 +129,5 @@ ActiveRecord::Schema.define(version: 20151020194637) do
   add_foreign_key "interviews", "jobs"
   add_foreign_key "job_applications", "jobs"
   add_foreign_key "networks", "jobs"
+  add_foreign_key "researches", "jobs"
 end

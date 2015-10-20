@@ -20,8 +20,12 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     @job.build_document
-    @job.job_application = JobApplication.new
+    @job.build_job_application
     if @job.save
+      @job.document = Document.new
+      @job.job_application = JobApplication.new
+      @job.interview = Interview.new
+      @job.research = Research.new
       redirect_to @job, notice: 'Job was successfully created.'
     else
       render :new
@@ -30,7 +34,6 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      #FIXME update success should render step
       render 'jobs/content_view', notice: 'Job was successfully updated.', locals: {step: params[:step]}
     else
       render :edit
@@ -49,16 +52,6 @@ class JobsController < ApplicationController
 
   def content_edit
     render 'jobs/content_edit', locals: {step: params[:step]}
-  end
-
-  def new_network
-    @job.networks.create
-    redirect_to @job
-  end
-
-  def new_interview
-    @job.interviews.create
-    render 'jobs/content_edit', locals: {step: params['interview']}
   end
 
   def deleted_index
