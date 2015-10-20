@@ -20,25 +20,26 @@
   %br
   %br
 
-  = form_for @job do |g|
-    = g.fields_for @job.resume do |f|
-      %ul
-        %li
-          = f.check_box :resume
-          = f.label :resume
-        %li
-          = f.check_box :cover_letter
-          = f.label :cover_letter
-        %li
-          = f.check_box :portfolio
-          = f.label :portfolio
-        %li
-          = f.check_box :certifications
-          = f.label :certifications
-        %li
-          = f.check_box :references
-          = f.label :references
-        %li
-          = f.check_box :recommendations
-          = f.label :recommendations
-    = g.submit 'Save', { class: 'primary_button' }
+  = form_for @job.document, url: job_document_path(@job, @job.document) do |f|
+    = hidden_field_tag :success_redirect, content_job_path(@job, step: :documents)
+    = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :documents)
+    %ul
+      %li
+        = f.check_box :resume
+        = f.label :resume
+      %li
+        = f.check_box :cover_letter
+        = f.label :cover_letter
+      %li
+        = f.check_box :portfolio
+        = f.label :portfolio
+      %li
+        = f.check_box :certifications
+        = f.label :certifications
+      %li
+        = f.check_box :references
+        = f.label :references
+      %li
+        = f.check_box :recommendations
+        = f.label :recommendations
+    = f.submit 'Save', { class: 'primary_button' }
