@@ -19,12 +19,11 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
-    @job.document = Document.new
-    @job.job_application = JobApplication.new
-    @job.interview = Interview.new
-    @job.network = Network.new
-    @job.create_research
     if @job.save
+      @job.document = Document.new
+      @job.job_application = JobApplication.new
+      @job.interview = Interview.new
+      @job.research = Research.new
       redirect_to @job, notice: 'Job was successfully created.'
     else
       render :new
@@ -33,7 +32,6 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      #FIXME update success should render step
       render 'jobs/content_view', notice: 'Job was successfully updated.', locals: {step: params[:step]}
     else
       render :edit
