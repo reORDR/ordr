@@ -263,6 +263,7 @@ DEPENDENCIES
   omniauth
   omniauth-linkedin
   pg
+  pry-rails
   puma
   rails (~> 4.2.4)
   rails_12factor
