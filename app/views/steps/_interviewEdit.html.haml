@@ -17,8 +17,10 @@
 
 %article.outer_container
   %section.step_content
-    = form_for @job do |g|
-      = g.fields_for @job.interview do |f|
+    = form_for @job.interviews, url: job_interviews_path(@job, @job.interviews) do |f|
+    = hidden_field_tag :success_redirect, content_job_path(@job, step: :interview)
+    = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :interview)
+      = f.fields_for @job.interview do |f|
         = f.radio_button :format, 'phone'
         = f.label :format_phone, "Phone Interview"
         %br
