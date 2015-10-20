@@ -15,6 +15,6 @@
 #   inflect.acronym 'RESTful'
 # end
 
-# ActiveSupport::Inflector.inflections do |inflect|
-#   inflect.irregular 'research', 'research'
-# end
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'research', 'researches'
+end

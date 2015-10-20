@@ -1,21 +1,4 @@
 = render @job
 
 - content_for :content do
-  - case step
-  - when 'details'
-    = render 'steps/detailsEdit'
-
-  - when 'researches'
-    = render 'steps/researchesEdit'
-
-  - when 'networking'
-    = render 'steps/networkingEdit'
-
-  - when 'documents'
-    = render 'steps/documentsEdit'
-
-  - when 'apply'
-    = render 'steps/applyEdit'
-
-  - when 'interview'
-    = render 'steps/interviewEdit'
+  = render "steps/#{step}Edit"

@@ -1,28 +1,5 @@
 = render @job
 
 - content_for :content do
-  - case step
-    - when 'details'
-      = render 'steps/details'
-
-    - when 'research'
-      = render 'steps/research'
-
-    - when 'networking'
-      = render 'steps/networking'
-
-    - when 'documents'
-      = render 'steps/documents'
-
-    - when 'apply'
-      = render 'steps/apply'
-
-    - when 'interview'
-      = render 'steps/interview'
-
-    - when "contacts"
-      - @job.contacts.each do |contact|
-        = contact.name
-
-    - else
-      = t('job_steps.more_info')
+  = render 'steps/' + step
+  

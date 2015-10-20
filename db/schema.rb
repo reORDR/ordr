@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019222924) do
+ActiveRecord::Schema.define(version: 20151020183716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 20151019222924) do
 
   add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
+  create_table "researches", force: :cascade do |t|
+    t.integer "job_id"
+    t.text    "company_mission"
+    t.text    "company_goals"
+    t.text    "current_projects"
+    t.boolean "done"
+  end
+
+  add_index "researches", ["job_id"], name: "index_researches_on_job_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -71,4 +81,5 @@ ActiveRecord::Schema.define(version: 20151019222924) do
 
   add_foreign_key "contacts", "jobs"
   add_foreign_key "interviews", "jobs"
+  add_foreign_key "researches", "jobs"
 end

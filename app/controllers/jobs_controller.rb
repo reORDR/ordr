@@ -21,6 +21,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     if @job.save
+      @job.create_research
       redirect_to @job, notice: 'Job was successfully created.'
     else
       render :new
@@ -73,6 +74,6 @@ private
   end
 
   def job_params
-    params.require(:job).permit!
+    params.require(:job).permit(research_attributes:[:company_mission, :company_goals, :current_projects])
   end
 end

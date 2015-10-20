@@ -4,20 +4,21 @@
       %div.number
         %h2 2
       %h1
-        = t('job_steps.researches.label')
-    = link_to content_edit_job_path({step: 'researches'}) do
+        = t('job_steps.research.label')
+    = link_to content_edit_job_path({step: 'research'}) do
       %button.add_button
         = image_tag "edit_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'researches'}) do
+    = link_to content_edit_job_path({step: 'research'}) do
       %button.add_button
         = image_tag "add_note_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'researches'}) do
+    = link_to content_edit_job_path({step: 'research'}) do
       %button.add_button
         = image_tag "add_contact_icon.svg", size: "20"
 
 %section.step_content
   = form_for @job do |g|
-    = g.fields_for @job.researches do |f|
+    = hidden_field_tag :step, :research
+    = g.fields_for :research, @job.research do |f|
       = f.label :company_mission, "Company's mission/vision/values"
       = f.text_area :company_mission
 
