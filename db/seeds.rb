@@ -101,7 +101,7 @@ end
 # - - - Networks - - -
 
 jobs.each do |job|
-  job.networks.create!(
+  job.network.create!(
     plans: true,
     date: 10.days.from_now,
     done: false
