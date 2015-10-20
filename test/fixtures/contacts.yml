@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  company: MyString
-  phone: MyString
-  linkedin_url: MyString
+Bill:
+  name: Bill Gates
+  email: bill@microsoft.com
+  company: Microsoft
+  phone: 206-777-4567
+  linkedin_url: www.linkedin.com/billgates
   job: scott_job
 
-two:
-  name: MyString
-  email: MyString
-  company: MyString
-  phone: MyString
-  linkedin_url: MyString
+Brook:
+  name: Brook Riggio
+  email: brook@codefellows.org
+  company: Code Fellows
+  phone: 206-777-2345
+  linkedin_url: www.linkedin.com/brook
   job: mary_job

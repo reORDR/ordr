@@ -3,38 +3,42 @@ require 'test_helper'
 feature 'When a user visits their dashboard they can see all their jobs' do
   scenario "users cannot see other users jobs" do
     visit root_path
-    fill_in 'email', with: "jane@example.com"
-    fill_in 'password', with: "password4321"
-    find('.list').click_on I18n.t('session.new_session.sign_in')
-    page.text.wont_include('Junior Developer')
+    fill_in 'user_email', with: users(:mary).email
+    fill_in 'user_password', with: "password"
+    click_button('Log in')
+    page.text.must_include('Cat Wrangler')
+    page.text.wont_include('Saxophone Developer')
   end
 
   scenario "should see all jobs on dashboard" do
     visit root_path
-    fill_in 'email', with: "john@example.com"
-    fill_in 'password', with: "password1234"
-    find('.list').click_on I18n.t('session.new_session.sign_in')
-    page.text.must_include('Mobile App Software Developer')
-    page.text.must_include("Junior Developer")
+    fill_in 'user_email', with: users(:scott).email
+    fill_in 'user_password', with: "password"
+    click_button('Log in')
+    page.text.must_include('Saxophone Developer')
+    page.text.must_include("Sweet Jams Architect")
   end
 
   scenario "Should be able to view job steps" do
     visit root_path
-    fill_in 'email', with: "john@example.com"
-    fill_in 'password', with: "password1234"
-    find('.list').click_on I18n.t('session.new_session.sign_in')
-    click_on("Junior Developer")
+    fill_in 'user_email', with: users(:mary).email
+    fill_in 'user_password', with: "password"
+    click_button('Log in')
+    click_on("Cat Wrangler")
     page.text.must_include('Job Steps')
   end
 
-  scenario "Should be able to view job details" do
+  scenario "can create a job" do
     visit root_path
-    fill_in 'email', with: "john@example.com"
-    fill_in 'password', with: "password1234"
-    find('.list').click_on I18n.t('session.new_session.sign_in')
-    click_on("Junior Developer")
-    page.text.must_include('Job Steps')
-    click_on ('Job Details')
-    page.text.must_include('Apply by')
+    fill_in 'user_email', with: users(:mary).email
+    fill_in 'user_password', with: "password"
+    click_button('Log in')
+    save_and_open_page
+    click_on('Add new job')
+    fill_in 'job_title', with: "Web Dev"
+    fill_in 'Company name', with: "Big Tech"
+    click_on 'Create Job'
+    page.text.must_include('Page was successfully created.')
   end
+
 end

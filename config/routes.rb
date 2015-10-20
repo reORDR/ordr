@@ -3,14 +3,17 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :jobs do
     resources :contacts
+    resources :document
+    resources :job_application
+    resources :interview
     get :deleted_index, on: :collection
     member do
       get 'content'
       get 'content_edit'
       put :new_network
       patch :new_network
-      put :new_interview
-      patch :new_interview
+      # put :new_interview
+      # patch :new_interview
     end
   end
 end

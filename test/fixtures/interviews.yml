@@ -1,13 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  type: 
+technical:
+  format: person
   thank_you: false
   date: 2015-10-19 15:29:27
-  job_id: 
+  job: garrett_job
 
-two:
-  type: 
+phone:
+  format: phone
   thank_you: false
   date: 2015-10-19 15:29:27
-  job_id: 
+  job: another_scott_job
+
+ty:
+  format: other
+  thank_you: true
+  date: 2015-10-19 15:29:27
+  job: another_mary_job
+

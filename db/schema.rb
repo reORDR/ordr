@@ -29,23 +29,48 @@ ActiveRecord::Schema.define(version: 20151020183716) do
 
   add_index "contacts", ["job_id"], name: "index_contacts_on_job_id", using: :btree
 
+  create_table "documents", force: :cascade do |t|
+    t.boolean  "resume"
+    t.boolean  "cover_letter"
+    t.boolean  "portfolio"
+    t.boolean  "certifications"
+    t.boolean  "references"
+    t.boolean  "recommendations"
+    t.boolean  "done"
+    t.integer  "job_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "documents", ["job_id"], name: "index_documents_on_job_id", using: :btree
+
   create_table "interviews", force: :cascade do |t|
-    t.string   "type"
-    t.boolean  "thank_you"
+    t.string   "format"
+    t.boolean  "thank_you",  default: false
     t.datetime "date"
     t.integer  "job_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
+
+  create_table "job_applications", force: :cascade do |t|
+    t.boolean  "sent",       default: false
+    t.date     "date"
+    t.integer  "job_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "job_applications", ["job_id"], name: "index_job_applications_on_job_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.string   "company_name"
     t.string   "url"
     t.datetime "due_date"
-    t.string   "type"
+    t.string   "source"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
@@ -62,6 +87,16 @@ ActiveRecord::Schema.define(version: 20151020183716) do
   end
 
   add_index "researches", ["job_id"], name: "index_researches_on_job_id", using: :btree
+  create_table "networks", force: :cascade do |t|
+    t.boolean  "plans",      default: false
+    t.date     "date"
+    t.boolean  "done",       default: false
+    t.integer  "job_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "networks", ["job_id"], name: "index_networks_on_job_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -82,4 +117,6 @@ ActiveRecord::Schema.define(version: 20151020183716) do
   add_foreign_key "contacts", "jobs"
   add_foreign_key "interviews", "jobs"
   add_foreign_key "researches", "jobs"
+  add_foreign_key "job_applications", "jobs"
+  add_foreign_key "networks", "jobs"
 end
