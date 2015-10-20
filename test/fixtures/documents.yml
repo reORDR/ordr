@@ -1,0 +1,29 @@
+mary_doc:
+  resume: true
+  cover_letter: true
+  portfolio: false
+  certifications: false
+  references: true
+  recommendations: true
+  done: false
+  job: mary_job
+
+garrett_doc:
+  resume: true
+  cover_letter: true
+  portfolio: true
+  certifications: true
+  references: true
+  recommendations: true
+  done: true
+  job: garrett_job
+
+scott_doc:
+  resume: false
+  cover_letter: false
+  portfolio: false
+  certifications: false
+  references: false
+  recommendations: false
+  done: false
+  job: scott_job
