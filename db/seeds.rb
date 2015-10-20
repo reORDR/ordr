@@ -88,6 +88,12 @@ jobs.each do |job|
   job.contacts.create!(matz)
 end
 
+# - - - Interviews - - -
+
 jobs.each do |job|
-  job.create_document(doc)
+  job.interviews.create!(
+    format: 'Phone',
+    thank_you: false,
+    date: 10.days.from_now
+  )
 end
