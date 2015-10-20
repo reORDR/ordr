@@ -21,7 +21,7 @@
   %br
 
   = form_for @job do |g|
-    = g.fields_for @job.resume do |f|
+    = g.fields_for @job.document do |f|
       %ul
         %li
           = f.check_box :resume
