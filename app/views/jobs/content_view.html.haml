@@ -24,5 +24,10 @@
       - @job.contacts.each do |contact|
         = contact.name
 
+    - when "notes"
+      - @job.notes.each do |note|
+        = note.body
+
+
     - else
       = t('job_steps.more_info')
