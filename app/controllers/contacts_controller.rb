@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
     # else
     #   instance_variable_set("@#{@resource.singularize}".to_sym, @job)
     #   render template: "#{@resource}/show"
-    # end
+    end
   end
 
   def update

@@ -1,19 +1,40 @@
 scott_job:
-  title: Developer
+  title: Saxophone Developer
+  company_name: Netflix
+  url: www.example.com
+  due_date: <%= DateTime.now %>
+  user: scott
+
+another_scott_job:
+  title: Sweet Jams Developer
   company_name: Netflix
   url: www.example.com
   due_date: <%= DateTime.now %>
   user: scott
 
 garrett_job:
-  title: Developer
+  title: Idea Developer
+  company_name: Netflix
+  url: www.example.com
+  due_date: <%= DateTime.now %>
+  user: garrett
+
+another_garrett_job:
+  title: Better Idea Developer
   company_name: Netflix
   url: www.example.com
   due_date: <%= DateTime.now %>
   user: garrett
 
 mary_job:
-  title: Developer
+  title: Cat Wrangler
+  company_name: Netflix
+  url: www.example.com
+  due_date: <%= DateTime.now %>
+  user: mary
+
+another_mary_job:
+  title: Cat Wrangler Wrangler
   company_name: Netflix
   url: www.example.com
   due_date: <%= DateTime.now %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+plans:
+  plans: true
+  date: 2015-10-19
+  done: false
+  job: scott_job
+
+no_plans:
+  plans: false
+  date: 2015-10-19
+  done: false
+  job: garrett_job
+
+dunzo:
+  plans: true
+  date: 2015-10-18
+  done: true
+  job: mary_job
