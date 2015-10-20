@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 technical:
-  format: technical
+  format: person
   thank_you: false
   date: 2015-10-19 15:29:27
   job: garrett_job
@@ -13,7 +13,7 @@ phone:
   job: another_scott_job
 
 ty:
-  format: phone
+  format: other
   thank_you: true
   date: 2015-10-19 15:29:27
   job: another_mary_job

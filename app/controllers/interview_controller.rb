@@ -1,4 +1,4 @@
-class InterviewsController < ApplicationController
+class InterviewController < ApplicationController
   def update
     interview = Interview.find(params[:id])
     if interview.update(interview_params)
