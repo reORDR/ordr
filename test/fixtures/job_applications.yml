@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+scott_application:
+  sent: false
+  date: 2015-10-19
+  job: scott_job
+
+mary_application:
+  sent: true
+  date: 2015-10-19
+  job: mary_job
