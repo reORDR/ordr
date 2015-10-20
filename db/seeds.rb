@@ -64,6 +64,30 @@ jobs = [
   mary_job_a, mary_job_b,
   garrett_job_a, garrett_job_b
 ]
+
+# - - - Contacts - - -
+
+paul_allen = {
+  name: 'Paul Allen',
+  email: 'hendrixfiend@vulcan.net',
+  company: 'Vulcan',
+  phone: '206-123-4567',
+  linkedin_url: 'www.linkedin.com/paulywog',
+}
+
+matz = {
+  name: 'Yukihiro Matsumoto',
+  email: 'matz@ruby.lang',
+  company: 'Heroku',
+  phone: '777-777-7777',
+  linkedin_url: 'www.linkedin.com/matz'
+}
+
+jobs.each do |job|
+  job.contacts.create!(paul_allen)
+  job.contacts.create!(matz)
+end
+
 jobs.each do |job|
   job.create_document(doc)
 end
