@@ -15,9 +15,7 @@
       %button.add_button
         = image_tag "add_contact_icon.svg", size: "20"
 
-= render 'notes/form', notable: @job.document
-
-%section.step_content
+%section.step_content{ id: dom_id(@job.document) }
   %h2 Document Checklist
   %br
   %br

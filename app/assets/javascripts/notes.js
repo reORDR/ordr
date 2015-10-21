@@ -1,16 +1,18 @@
 $(function() {
   $addNote = $('#add_note');
-  $noteForm = $('#new_note');
   $save = $('#save_note');
 
-  $noteForm.hide();
+  var docId = function() {
+    return $('.step_content').attr('id').split('_')[1];
+  };
 
   $addNote.click(function(e) {
     e.preventDefault();
-    $noteForm.toggle("fast");
-  });
-
-  $save.click(function() {
-    $noteForm.hide("fast")
+    if ($('#new_note').length) {
+      console.log(this);
+      $('#new_note').fadeToggle();
+    } else {
+      $.get("/documents/" + docId() + "/notes/new");
+    }
   });
 });

@@ -21,11 +21,9 @@ class JobsController < ApplicationController
     @job.user = current_user
     @job.build_document
     @job.build_job_application
+    @job.build_interview
+    @job.build_research
     if @job.save
-      @job.document = Document.new
-      @job.job_application = JobApplication.new
-      @job.interview = Interview.new
-      @job.research = Research.new
       redirect_to @job, notice: 'Job was successfully created.'
     else
       render :new
@@ -60,7 +58,7 @@ class JobsController < ApplicationController
     render "jobs/index"
   end
 
-private
+  private
   # Use callbacks to share common setup or constraints between actions.
   def set_job
     @job = Job.find(params[:id])

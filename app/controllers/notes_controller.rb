@@ -1,7 +1,14 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:update, :destroy]
   before_action :load_notable
-  before_action :set_job
+
+  def index
+    @notes = @notable.notes
+  end
+
+  def new
+    @note = @notable.notes.build
+  end
 
   def create
     @note = @notable.notes.new(note_params)
@@ -36,20 +43,11 @@ class NotesController < ApplicationController
   private
 
   def load_notable
-    resource, id = request.path.split('/')[3..4]
+    resource, id = request.path.split('/')[1..2]
     @notable = resource.singularize.classify.constantize.find(id)
-  end
-
-  def set_job
-    @job = Job.find(params[:job_id])
   end
 
   def set_note
     @note = Note.find(params[:id])
   end
-
-  def note_params
-    params.require(:note).permit(:content)
-  end
-
 end

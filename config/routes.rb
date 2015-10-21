@@ -19,4 +19,9 @@ Rails.application.routes.draw do
       # patch :new_interview
     end
   end
+  resources :documents do
+    resources :notes
+  end
 end
+
+# shallow nested routes
