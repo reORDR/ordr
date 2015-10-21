@@ -13,5 +13,11 @@ feature 'Can view and edit job research' do
     find('#research_company_mission').set("Do good and change the world")
     click_on("Save")
     page.text.must_include("Do good and change the world")
+    find('#research_company_goals').set("Do better and change the world")
+    click_on("Save")
+    page.text.must_include("Do better and change the world")
+    find('#research_current_projects').set("Do the best and change the world")
+    click_on("Save")
+    page.text.must_include("Do the best and change the world")
   end
 end

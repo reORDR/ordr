@@ -18,7 +18,7 @@ class ResearchController < ApplicationController
       .permit(
         :company_mission,
         :current_projects,
-        :company_mission,
+        :company_goals,
         :done
       )
   end
