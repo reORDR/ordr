@@ -1,0 +1,16 @@
+%header.list_header
+  %h1
+  = @contact.name
+
+%article.outer_container
+  %section.step_content
+    = @contact.email
+    %br
+    = @contact.phone
+    %br
+    = @contact.linkedin_url
+    %br
+    = @contact.company
+
+    = link_to 'New Contact', new_job_contact_path(@job)
+    = link_to 'Edit Contact', edit_job_contact_path(@job, @contact)
