@@ -39,3 +39,5 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'foreman', :group => [:development, :test]
