@@ -54,11 +54,11 @@ class JobsController < ApplicationController
     render 'jobs/content_edit', locals: {step: params[:step]}
   end
 
-  def deleted_index
-    #TODO clicking on job list items crashes app
-    @jobs = Job.deleted.where(user: current_user).to_a
-    render "jobs/index"
-  end
+  # def deleted_index
+  #   #TODO clicking on job list items crashes app
+  #   @jobs = Job.deleted.where(user: current_user).to_a
+  #   render "jobs/index"
+  # end
 
 private
   # Use callbacks to share common setup or constraints between actions.
