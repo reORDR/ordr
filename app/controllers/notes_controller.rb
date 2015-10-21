@@ -11,12 +11,12 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = @notable.notes.new(note_params)
+    @note = @notable.notes.build(note_params)
     if @note.save
-      redirect_to [@notable.job, @notable], notice: "note added."
+      # drop-through to notes/create.js.erb
     else
-      instance_variable_set("@#{@resource.singularize}".to_sym, @notable)
-      render template: "#{@resource}/show"
+      # instance_variable_set("@#{@resource.singularize}".to_sym, @notable)
+      # render partial: "steps/#{@resource}", alert: "There was a problem saving your note."
     end
   end
 
@@ -42,9 +42,13 @@ class NotesController < ApplicationController
 
   private
 
+  def note_params
+    params.require(:note).permit(:body)
+  end
+
   def load_notable
-    resource, id = request.path.split('/')[1..2]
-    @notable = resource.singularize.classify.constantize.find(id)
+    @resource, id = request.path.split('/')[1..2]
+    @notable = @resource.singularize.classify.constantize.find(id)
   end
 
   def set_note
