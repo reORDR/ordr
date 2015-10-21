@@ -12,7 +12,7 @@ feature 'User can view and edit job details' do
     click_on('Edit')
     fill_in 'job_title', with: 'Web Dev'
     click_on('Save')
-    page.text.must_include('Job was successfully updated.')
+    page.text.must_include('Job was successfully updated')
     page.text.must_include('Web Dev')
   end
 

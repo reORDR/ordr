@@ -1,0 +1,21 @@
+
+scott:
+  company_mission: "Some text"
+  company_goals: "Some text"
+  current_projects: "Some text"
+  done: false
+  job: scott_job
+
+garrett:
+  company_mission: "Some text"
+  company_goals: "Some text"
+  current_projects: "Some text"
+  done: false
+  job: garrett_job
+
+mary:
+  company_mission: "Some text"
+  company_goals: "Some text"
+  current_projects: "Some text"
+  done: false
+  job: mary_job

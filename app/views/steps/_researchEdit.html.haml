@@ -1,30 +1,15 @@
-%header.content_header.outer_container
-  %article.steptitle_grid.steptitle_flex
-    %section.steptitle_width
-      %div.number
-        %h2 2
-      %h1
-        = t('job_steps.research.label')
-    = link_to content_edit_job_path({step: 'research'}) do
-      %button.add_button
-        = image_tag "edit_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'research'}) do
-      %button.add_button
-        = image_tag "add_note_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'research'}) do
-      %button.add_button
-        = image_tag "add_contact_icon.svg", size: "20"
+= render "steps/header"
 
 %section.step_content
-  = form_for @job do |g|
-    = hidden_field_tag :step, :research
-    = g.fields_for :research, @job.research do |f|
-      = f.label :company_mission, "Company's mission/vision/values"
-      = f.text_area :company_mission
+  = form_for @job.research, url: job_research_path(@job, @job.research) do |f|
+    = hidden_field_tag :success_redirect, content_job_path(@job, step: :research)
+    = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :research)
+    = f.label :company_mission, "Company's mission/vision/values"
+    = f.text_area :company_mission
 
-      = f.label :company_goals, "Company's Strategic Goals"
-      = f.text_area :company_goals
+    = f.label :company_goals, "Company's Strategic Goals"
+    = f.text_area :company_goals
 
-      = f.label :current_projects, "Favorite Company Prouct/Project/Service"
-      = f.text_area :current_projects
-    = g.submit 'Save', {class: 'primary_button'}
+    = f.label :current_projects, "Favorite Company Prouct/Project/Service"
+    = f.text_area :current_projects
+    = f.submit 'Save', {class: 'primary_button'}

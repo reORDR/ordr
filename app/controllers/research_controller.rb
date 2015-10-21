@@ -13,8 +13,14 @@ class ResearchController < ApplicationController
   private
 
   def research_params
-    #              below used to be :jobs
-    params.require(:research).permit(research_attributes:[:company_mission, :company_goals, :current_projects])
+    params
+      .require(:research)
+      .permit(
+        :company_mission,
+        :current_projects,
+        :company_mission,
+        :done
+      )
   end
 end
 
