@@ -20,14 +20,9 @@ class NotesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to [@notable.job, @notable], notice: 'note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @notable }
-      else
-        format.html { render :edit }
-        format.json { render json: @notable.errors, status: :unprocessable_entity }
-      end
+    if @note.update(note_params)
+      # drop-through to notes/update.js.erb
+    else
     end
   end
 
