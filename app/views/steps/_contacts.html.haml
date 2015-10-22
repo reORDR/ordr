@@ -8,4 +8,13 @@
   %ul
   - @job.contacts.each do |contact|
     %li
-      = link_to contact.name, job_contact_path(@job.id, contact.id)
+      = contact.name
+      %br
+      = contact.email
+      %br
+      = contact.phone
+      %br
+      = contact.company
+      %br
+      = contact.linkedin_url
+

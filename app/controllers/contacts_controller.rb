@@ -21,12 +21,6 @@ class ContactsController < ApplicationController
 
   def create
     @contact = @job.contacts.new(contact_params)
-    if @contact.save
-      redirect_to [@job.job, @job], notice: "Contact added."
-    # else
-    #   instance_variable_set("@#{@resource.singularize}".to_sym, @job)
-    #   render template: "#{@resource}/show"
-    end
   end
 
   def update
