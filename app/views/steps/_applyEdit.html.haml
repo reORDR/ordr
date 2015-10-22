@@ -2,7 +2,7 @@
 
 %article.outer_container
   %section.step_content
-    = form_for @job.job_application, url: job_job_application_path(@job, @job.job_application) do |f|
+    = form_for @job.job_application, url: job_job_application_path(@job, @job.job_application), data: { remote: true }  do |f|
       = hidden_field_tag :success_redirect, content_job_path(@job, step: :apply)
       = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :apply)
       %ul

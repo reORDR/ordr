@@ -32,8 +32,9 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      redirect_to params[:success_redirect],
-                  notice: 'Job was successfully updated'
+      flash[:success] = "Job was successfully updated"
+      # redirect_to params[:success_redirect],
+      #             notice: 'Job was successfully updated'
     else
       redirect_to params[:failure_redirect],
                   alert: 'There was a problem updating the job'
@@ -47,11 +48,11 @@ class JobsController < ApplicationController
   end
 
   def content
-    render 'jobs/content_view', locals: {step: params[:step]}
+    @step = params[:step]
   end
 
   def content_edit
-    render 'jobs/content_edit', locals: {step: params[:step]}
+    @step = params[:step]
   end
 
   # def deleted_index
