@@ -6,5 +6,6 @@
   %div.ribbon BETA
   - if current_user
     = link_to "Sign out", destroy_user_session_url
+    = link_to "Edit account", edit_user_registration_path
   - else
     = link_to "Sign in", new_user_session_path

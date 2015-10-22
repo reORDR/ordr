@@ -5,10 +5,13 @@
         %h2 #
       %h1
         = t('job_steps.' + "#{params['step']}" + '.label')
-    = link_to content_edit_job_path({step: "#{params['step']}"}), remote: true, id: "job_edit_link" do
+    = link_to content_edit_job_path(@job, {step: "#{params['step']}"}), remote: true, id: "job_edit_link" do
       %button.add_button
         = image_tag "edit_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: "#{params['step']}"}) do
+    = link_to content_edit_job_path(@job, {step: "#{params['step']}"}) do
       %button.add_button
-      = image_tag "add_note_icon.svg", size: "20"
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to new_job_contact_path(@job, {step: "#{params['step']}"}), remote: true, id: "contact_add_link" do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
 

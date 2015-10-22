@@ -8,4 +8,13 @@
   %ul
   - @job.contacts.each do |contact|
     %li
-      = link_to contact.name, job_contact_path(@job.id, contact.id)
+      %h3
+        = contact.name
+      = contact.email
+      = contact.phone
+      = contact.company
+      = contact.linkedin_url
+      = link_to 'Edit Contact', edit_job_contact_path(@job, contact), remote: true
+
+
+  = link_to "Add Contact", new_job_contact_path(@job), remote: true
