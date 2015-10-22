@@ -23,7 +23,8 @@ class JobsController < ApplicationController
     @job.build_job_application
     @job.build_interview
     @job.build_research
-    if @job.save
+    @job.build_network
+if @job.save
       redirect_to @job, notice: 'Job was successfully created.'
     else
       render :new
