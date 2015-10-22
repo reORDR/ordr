@@ -6,7 +6,7 @@ class Job < ActiveRecord::Base
   has_one :network, dependent: :destroy
   has_one :interview, dependent: :destroy
   has_one :document, dependent: :destroy
-
+  has_many :notes
 
   accepts_nested_attributes_for :research
   accepts_nested_attributes_for :document

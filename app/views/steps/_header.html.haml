@@ -10,5 +10,8 @@
         = image_tag "edit_icon.svg", size: "20"
     = link_to content_edit_job_path({step: "#{params['step']}"}) do
       %button.add_button
-      = image_tag "add_note_icon.svg", size: "20"
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to new_job_contact_path(@job, {step: "#{params['step']}"}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
 
