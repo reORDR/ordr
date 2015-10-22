@@ -120,3 +120,14 @@ jobs.each { |job| job.create_network!(network) }
 # - - - Job Applications - - -
 
 jobs.each { |job| job.create_job_application! }
+
+# - - - Notes - - -
+
+steps = Job::STEPS.dup
+
+jobs.each do |job|
+  steps.each do |step|
+    instance = step.classify.constantize.find(job.id)
+    instance.notes.create!(body: "#{step} note!!!")
+  end
+end
