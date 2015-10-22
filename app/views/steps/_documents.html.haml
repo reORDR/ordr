@@ -1,6 +1,6 @@
-= render "steps/header"
+= render 'steps/header'
 
-%section.step_content
+%section.step_content{ id: dom_id(@job.document) }
   %h2 Document Checklist
   %br
   %br

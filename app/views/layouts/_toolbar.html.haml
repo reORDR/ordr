@@ -12,7 +12,7 @@
     = image_tag "dashboard_icon.svg", size: "18"
     Dashboard
 - if @job && @job.created_at
-  = link_to content_job_path(@job, {step: "notes"}) do
+  = link_to content_job_path(@job, {step: "notes"}), remote: true do
     %button.toolbar_button
       = image_tag "notes_icon.svg", size: "16"
       View Job Notes
