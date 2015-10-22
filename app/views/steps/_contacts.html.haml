@@ -2,8 +2,7 @@
 
 %section.step_content
   - @job.contacts.each do |contact|
-    %ul
-      %li{id: dom_id(contact) }
+    %ul{id: dom_id(contact) }
       %li
         %h2= contact.name
       %li= mail_to contact.email
