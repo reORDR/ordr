@@ -2,7 +2,7 @@
   %article.steptitle_grid.steptitle_flex
     %section.steptitle_width
       %div.number
-        %h2 6
+        %h2 #
       %h1
         = t('job_steps.' + "#{params['step']}" + '.label')
       = link_to content_edit_job_path({step: "#{params['step']}"}), remote: true, id: "job_edit_link" do
