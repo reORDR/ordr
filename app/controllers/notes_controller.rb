@@ -28,10 +28,9 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    respond_to do |format|
-      format.html { redirect_to [@notable.job, @notable], notice: "note was successfully deleted."}
-      format.json {head :no_content }
-    end
+    # format.html { redirect_to [@notable.job, @notable], notice: "note was successfully deleted."}
+    #   format.json {head :no_content }
+    # end
   end
 
   private
