@@ -7,7 +7,7 @@
     %p
       = @job.job_application.sent ? "Sent" : "Not sent"
 
-    - if @job.job_application.date
-      %label When did you apply?
+    - unless @job.job_application.sent == false
+      %label Date Applied:
       %p
         = @job.job_application.date
