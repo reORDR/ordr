@@ -1,21 +1,22 @@
 = render "steps/header"
 
 %section.step_content
-  %h2 Contacts
-  %br
-  %br
-
-  %ul
   - @job.contacts.each do |contact|
-    %li{id: dom_id(contact) }
-      = contact.name
-      = contact.email
-      = contact.phone
-      = contact.company
-      = contact.linkedin_url
-      %h3
-        = link_to 'Edit Contact', edit_job_contact_path(@job, contact), remote: true
-        = link_to 'Remove Contact', job_contact_path(@job, contact), remote: true, method: :delete
+    %ul
+      %li{id: dom_id(contact) }
+      %li
+        %h2= contact.name
+      %li= mail_to contact.email
+      %li= contact.phone
+      %li= contact.company
+      %li= link_to "LinkedIn", contact.linkedin_url unless contact.linkedin_url.length == 0
+      %li
+        %h3= link_to 'Edit Contact', edit_job_contact_path(@job, contact), remote: true
+      %li
+        %h3= link_to 'Remove Contact', job_contact_path(@job, contact), remote: true, method: :delete
+      %br
 
-
-  = link_to "Add Contact", new_job_contact_path(@job), remote: true
+  = link_to new_job_contact_path(@job), remote: true do
+    %button.toolbar_button
+      = image_tag "contacts_icon.svg", size: "18"
+      Add Job Contact

@@ -16,7 +16,7 @@
       = @job.title
     %label URL
     %p
-      = @job.url
+      = link_to @job.url, @job.url
     %label Company name
     %p
       = @job.company_name
