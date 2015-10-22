@@ -1,1 +1,6 @@
-%p= note.body
+.note{ id: "#{ dom_id(note) }" }
+  %li= note.body
+  %li
+    = link_to "Edit", "/#{note.notable_type.underscore.pluralize}/#{note.notable_id}/notes/#{note.id}/edit", remote: true
+    = link_to "Delete"
+%br
