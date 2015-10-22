@@ -1,10 +1,6 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:update, :destroy]
+  before_action :set_note, only: [:edit, :update, :destroy]
   before_action :load_notable
-
-  def index
-    @notes = @notable.notes
-  end
 
   def new
     @note = @notable.notes.build

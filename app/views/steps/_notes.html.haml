@@ -1,0 +1,23 @@
+%header.content_header.outer_container
+  %article.steptitle_grid.steptitle_flex
+    %section.steptitle_width
+      %div.number
+        %h2
+      %h1
+        = t('job_steps.notes.label')
+    = link_to content_edit_job_path({step: 'notes'}) do
+      %button.add_button
+        = image_tag "edit_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'notes'}) do
+      %button.add_button
+        = image_tag "add_note_icon.svg", size: "20"
+    = link_to content_edit_job_path({step: 'notes'}) do
+      %button.add_button
+        = image_tag "add_contact_icon.svg", size: "20"
+
+%h1
+  - Job::STEPS.each do |step|
+    - if @job.notes(step).any?
+      %h2
+        = (step.include?("_") ? step.sub("_", " ") : step).upcase
+      = render @job.notes(step), collection: @notes
