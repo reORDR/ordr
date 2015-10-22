@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
+  resources :notes
   resources :jobs do
     resources :contacts
     resources :document
@@ -18,4 +19,9 @@ Rails.application.routes.draw do
       # patch :new_interview
     end
   end
+  resources :documents do
+    resources :notes
+  end
 end
+
+# shallow nested routes

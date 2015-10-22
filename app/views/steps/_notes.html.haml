@@ -1,0 +1,7 @@
+= render 'steps/header'
+
+%h1
+  - Job::STEPS.each do |step|
+    - if @job.notes(step).any?
+      %h2= (step.include?("_") ? step.sub("_", " ") : step).upcase
+      = render @job.notes(step), collection: @notes

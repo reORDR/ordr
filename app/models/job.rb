@@ -14,4 +14,22 @@ class Job < ActiveRecord::Base
   accepts_nested_attributes_for :network
   accepts_nested_attributes_for :interview
   accepts_nested_attributes_for :contacts
+
+  has_many :research_notes, through: :research, source: :notes
+  has_many :network_notes, through: :network, source: :notes
+  has_many :interview_notes, through: :interview, source: :notes
+  has_many :job_application_notes, through: :job_application, source: :notes
+  has_many :document_notes, through: :document, source: :notes
+
+  STEPS = [
+    'research',
+    'network',
+    'document',
+    'job_application',
+    'interview'
+  ]
+
+  def notes(step)
+    self.send("#{step}_notes")
+  end
 end

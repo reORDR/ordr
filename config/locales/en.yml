@@ -73,3 +73,6 @@ en:
     interview:
       label: "Interview"
       tooltip: "Ace it"
+    notes:
+      label: "Notes"
+      tooltip: "Never forget!"
