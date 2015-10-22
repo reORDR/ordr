@@ -7,14 +7,15 @@
 
   %ul
   - @job.contacts.each do |contact|
-    %li
-      %h3
-        = contact.name
+    %li{id: dom_id(contact) }
+      = contact.name
       = contact.email
       = contact.phone
       = contact.company
       = contact.linkedin_url
-      = link_to 'Edit Contact', edit_job_contact_path(@job, contact), remote: true
+      %h3
+        = link_to 'Edit Contact', edit_job_contact_path(@job, contact), remote: true
+        = link_to 'Remove Contact', job_contact_path(@job, contact), remote: true, method: :delete
 
 
   = link_to "Add Contact", new_job_contact_path(@job), remote: true
