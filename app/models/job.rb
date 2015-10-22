@@ -16,7 +16,6 @@ class Job < ActiveRecord::Base
 
   has_many :research_notes, through: :research, source: :notes
   has_many :network_notes, through: :network, source: :notes
-  has_many :contacts_notes, through: :contacts, source: :notes
   has_many :interview_notes, through: :interview, source: :notes
   has_many :job_application_notes, through: :job_application, source: :notes
   has_many :document_notes, through: :document, source: :notes
@@ -24,7 +23,6 @@ class Job < ActiveRecord::Base
   STEPS = [
     'research',
     'network',
-    'contacts',
     'document',
     'job_application',
     'interview'
