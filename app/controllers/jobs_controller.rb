@@ -48,11 +48,11 @@ class JobsController < ApplicationController
   end
 
   def content
-    render 'jobs/content_view', locals: {step: params[:step]}
+    @step = params[:step]
   end
 
   def content_edit
-    render 'jobs/content_edit', locals: {step: params[:step]}
+    @step = params[:step]
   end
 
   # def deleted_index

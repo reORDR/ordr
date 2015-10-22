@@ -1,13 +1,9 @@
 class ResearchController < ApplicationController
   def update
-    research = Research.find(params[:id])
-    if research.update(research_params)
-      redirect_to params[:success_redirect],
-                  notice: 'Research was successfully updated'
-    else
-      redirect_to params[:failure_redirect],
-                  alert: 'There was a problem updating the research'
-    end
+    @job = Job.find(params[:job_id])
+    @research = Research.find(params[:id])
+    @research.update(research_params)
+    @step = 'research'
   end
 
   private

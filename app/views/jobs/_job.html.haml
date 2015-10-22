@@ -6,42 +6,42 @@
   %h2= @job.title
   %h3= @job.company_name
 
-= link_to content_job_path({step: "details"}) do
+= link_to content_job_path({step: "details"}), remote: true do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 1
     %h2
       =t('job_steps.details.label')
 
-= link_to content_job_path({step: "research"}) do
+= link_to content_job_path({step: "research"}), remote: true do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 2
     %h2
       =t('job_steps.research.label')
 
-= link_to content_job_path({step: "networking"}) do
+= link_to content_job_path({step: "networking"}), remote: true do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 3
     %h2
       =t('job_steps.networking.label')
 
-= link_to content_job_path({step: "documents"}) do
+= link_to content_job_path({step: "documents"}), remote: true do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 4
     %h2
       =t('job_steps.documents.label')
 
-= link_to content_job_path({step: "apply"}) do
+= link_to content_job_path({step: "apply"}), remote: true do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 5
     %h2
       =t('job_steps.apply.label')
 
-= link_to content_job_path({step: "interview"}) do
+= link_to content_job_path({step: "interview"}), remote: true do
   %section.step_title.job_entry_item
     %div.number_title
       %h3 6

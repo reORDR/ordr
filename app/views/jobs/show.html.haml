@@ -1,6 +1,7 @@
 = render @job
 
 - content_for :content do
+  = render "steps/header"
   %section.step_content
     %h1.label
       = t('job_steps.more_info')
