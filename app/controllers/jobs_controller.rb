@@ -19,6 +19,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
+    @job.build_network
     if @job.save
       @job.document = Document.new
       @job.job_application = JobApplication.new
