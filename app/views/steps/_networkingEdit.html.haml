@@ -1,24 +1,9 @@
-%header.content_header.outer_container
-  %article.steptitle_grid.steptitle_flex
-    %section.steptitle_width
-      %div.number
-        %h2 3
-      %h1
-        = t('job_steps.networking.label')
-    = link_to content_edit_job_path({step: 'networking'}) do
-      %button.add_button
-        = image_tag "edit_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'networking'}) do
-      %button.add_button
-        = image_tag "add_note_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'networking'}) do
-      %button.add_button
-        = image_tag "add_contact_icon.svg", size: "20"
+= render "steps/header"
 
 %article.outer_container
   %section.step_content
 
-    = form_for @job.network, url: job_network_path(@job, @job.network) do |f|
+    = form_for @job.network, url: job_network_path(@job, @job.network), data: { remote: true }  do |f|
       = hidden_field_tag :success_redirect, content_job_path(@job, step: :networking)
       = hidden_field_tag :failure_redirect, content_edit_job_path(@job, step: :networking)
       %label Did / do you plan to discuss this position with someone?

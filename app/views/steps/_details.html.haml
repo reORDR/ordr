@@ -2,18 +2,12 @@
   %article.steptitle_grid.steptitle_flex
     %section.steptitle_width
       %div.number
-        %h2 1
+        %h2 #
       %h1
-        = t('job_steps.details.label')
-    = link_to content_edit_job_path({step: 'details'}) do
+        = t('job_steps.' + "#{params['step']}" + '.label')
+    = link_to edit_job_path(@job), remote: true, id: "job_edit_link" do
       %button.add_button
         = image_tag "edit_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'details'}) do
-      %button.add_button
-        = image_tag "add_note_icon.svg", size: "20"
-    = link_to content_edit_job_path({step: 'details'}) do
-      %button.add_button
-        = image_tag "add_contact_icon.svg", size: "20"
 
 %article.outer_container
   %section.step_content

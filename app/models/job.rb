@@ -1,11 +1,12 @@
 class Job < ActiveRecord::Base
   belongs_to :user
-  has_many :contacts
-  has_one :research
-  has_one :job_application
-  has_one :network
-  has_one :interview
-  has_one :document
+  has_many :contacts, dependent: :destroy
+  has_one :research, dependent: :destroy
+  has_one :job_application, dependent: :destroy
+  has_one :network, dependent: :destroy
+  has_one :interview, dependent: :destroy
+  has_one :document, dependent: :destroy
+
 
   accepts_nested_attributes_for :research
   accepts_nested_attributes_for :document

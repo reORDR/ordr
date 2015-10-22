@@ -1,12 +1,11 @@
 $(function() {
-  $addNote = $('#add_note');
-
   var docId = function() {
     return $('.step_content').attr('id').split('_')[1];
   };
 
-  $addNote.click(function(e) {
+  $('article.content').on('click', '#add_note', function(e) {
     e.preventDefault();
+    console.log('#add_note got clicked');
     if ($('#new_note').length) {
       $('#new_note').fadeToggle();
     } else {

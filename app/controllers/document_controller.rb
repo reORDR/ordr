@@ -1,13 +1,9 @@
 class DocumentController < ApplicationController
   def update
-    document = Document.find(params[:id])
-    if document.update(document_params)
-      redirect_to params[:success_redirect],
-                  notice: 'Document was successfully updated'
-    else
-      redirect_to params[:failure_redirect],
-                  alert: 'There was a problem updating the document'
-    end
+    @job = Job.find(params[:job_id])
+    @document = Document.find(params[:id])
+    @document.update(document_params)
+    @step = 'document'
   end
 
   private

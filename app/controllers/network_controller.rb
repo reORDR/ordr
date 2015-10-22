@@ -1,13 +1,9 @@
 class NetworkController < ApplicationController
   def update
-    network = Network.find(params[:id])
-    if network.update(network_params)
-      redirect_to params[:success_redirect],
-                  notice: 'Network was successfully updated'
-    else
-      redirect_to params[:failure_redirect],
-                  alert: 'There was a problem updating the network'
-    end
+    @job = Job.find(params[:job_id])
+    @network = Network.find(params[:id])
+    @network.update(network_params)
+    @step = 'network'
   end
 
   private
