@@ -21,17 +21,17 @@ class ContactsController < ApplicationController
 
   def create
     @contact = @job.contacts.new(contact_params)
+    @contact.save!
   end
 
   def update
-    respond_to do |format|
-      if @contact.update(contact_params)
-        format.html { redirect_to params[:success_redirect], notice: 'Contact was successfully updated.' }
-        format.json { render :show, status: :ok, location: @job.contacts }
-      else
-        format.html { redirect_to params[:failure_redirect], alert: 'There was a problem updating the document' }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
+    if @contact.update(contact_params)
+      flash[:success] = "Contact was successfully updated"
+      # redirect_to params[:success_redirect],
+      #             notice: 'Job was successfully updated'
+    else
+      redirect_to params[:failure_redirect],
+                  alert: 'There was a problem updating the contact'
     end
   end
 

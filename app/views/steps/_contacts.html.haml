@@ -10,13 +10,11 @@
     %li
       %h3
         = contact.name
-      %br
       = contact.email
-      %br
       = contact.phone
-      %br
       = contact.company
-      %br
       = contact.linkedin_url
+      = link_to 'Edit Contact', edit_job_contact_path(@job, contact), remote: true
 
-  = link_to "Add Contact", new_job_contact_path(@job)
+
+  = link_to "Add Contact", new_job_contact_path(@job), remote: true
