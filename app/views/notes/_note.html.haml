@@ -1,5 +1,4 @@
 .note{ id: "#{ dom_id(note) }" }
-  %p= note.body
-  %h3= link_to "Edit", "/#{note.notable_type.underscore.pluralize}/#{note.notable_id}/notes/#{note.id}/edit", remote: true
-  %h3= link_to "Delete", "/#{note.notable_type.underscore.pluralize}/#{note.notable_id}/notes/#{note.id}", method: :delete, data: { confirm: 'Are you sure?' }, remote: true
+  %p= link_to note.body, note.edit_notable_note_path, remote: true
+  %h3= link_to "Delete", note.notable_note_path, method: :delete, data: { confirm: 'Are you sure?' }, remote: true
 %br
