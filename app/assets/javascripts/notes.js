@@ -5,7 +5,6 @@ $(function() {
 
   $('article.content').on('click', '#add_note', function(e) {
     e.preventDefault();
-    console.log('#add_note got clicked');
     if ($('#new_note').length) {
       $('#new_note').fadeToggle();
     } else {
