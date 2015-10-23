@@ -128,11 +128,12 @@ jobs.each { |job| job.create_job_application! }
 
 # - - - Notes - - -
 
-steps = Job::STEPS.dup
+steps = Job::STEPS.keys
 
 jobs.each do |job|
   steps.each do |step|
     instance = step.classify.constantize.find(job.id)
-    instance.notes.create!(body: "#{step} note!!!")
+    instance.notes.create!(body: "super informative #{step} note")
+    instance.notes.create!(body: "another #{step} note")
   end
 end

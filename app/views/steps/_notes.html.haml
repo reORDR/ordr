@@ -2,7 +2,10 @@
 
 %section.step_content
   %h1
-    - Job::STEPS.each do |step|
+    - Job::STEPS.keys.each do |step|
       - if @job.notes(step).any?
         %h2= (step.include?("_") ? step.sub("_", " ") : step).upcase
+        %br
+        %br
         = render @job.notes(step), collection: @notes
+        %hr

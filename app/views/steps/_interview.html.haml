@@ -1,7 +1,7 @@
 = render "steps/header"
 
 %article.outer_container
-  %section.step_content
+  %section.step_content{ id: dom_id(@job.interview) }
     %label Interview format
     %p= @job.interview.format
     %label Interview date

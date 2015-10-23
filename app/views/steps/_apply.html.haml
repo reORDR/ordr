@@ -1,7 +1,7 @@
 = render "steps/header"
 
 %article.outer_container
-  %section.step_content
+  %section.step_content{ id: dom_id(@job.job_application) }
     %label
       = t('job_steps.apply.sent')
     %p

@@ -21,15 +21,18 @@ class Job < ActiveRecord::Base
   has_many :job_application_notes, through: :job_application, source: :notes
   has_many :document_notes, through: :document, source: :notes
 
-  STEPS = [
-    'research',
-    'network',
-    'document',
-    'job_application',
-    'interview'
-  ]
+  # step => path
+  STEPS = {
+    'research' => 'researches',
+    'network' => 'networks',
+    'document' => 'documents',
+    'job_application' => 'job_applications',
+    'interview' => 'interviews'
+  }
 
   def notes(step)
     self.send("#{step}_notes")
   end
+
+
 end

@@ -1,6 +1,6 @@
 = render "steps/header"
 
-%section.step_content
+%section.step_content{ id: dom_id(@job.network) }
   %label Did / do you plan to discuss this position with someone?
 
   - if @job.network.plans == true
@@ -14,4 +14,3 @@
     %label Meeting Date
     %p
       = @job.network.date
-
