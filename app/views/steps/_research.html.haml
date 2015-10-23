@@ -1,6 +1,6 @@
 = render "steps/header"
 
-%section.step_content
+%section.step_content{ id: dom_id(@job.research) }
   %label Company's mission/vision/values
   %p
     = @job.research.company_mission
