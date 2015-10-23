@@ -123,7 +123,7 @@ jobs.each { |job| job.create_job_application! }
 
 # - - - Notes - - -
 
-steps = Job::STEPS.dup
+steps = Job::STEPS.keys
 
 jobs.each do |job|
   steps.each do |step|
