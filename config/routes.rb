@@ -19,9 +19,24 @@ Rails.application.routes.draw do
       # patch :new_interview
     end
   end
+
   resources :documents do
-    resources :notes
+    resources :notes, except: [:index, :show]
+  end
+
+  resources :job_applications do
+    resources :notes, except: [:index, :show]
+  end
+
+  resources :networks do
+    resources :notes, except: [:index, :show]
+  end
+
+  resources :researches do
+    resources :notes, except: [:index, :show]
+  end
+
+  resources :interviews do
+    resources :notes, except: [:index, :show]
   end
 end
-
-# shallow nested routes
