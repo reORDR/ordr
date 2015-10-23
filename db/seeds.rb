@@ -5,7 +5,6 @@ scott = User.new(
   password: 'password',
   password_confirmation: 'password'
 )
-scott.skip_confirmation!
 scott.save
 
 mary = User.new(
@@ -13,7 +12,6 @@ mary = User.new(
   password: 'password',
   password_confirmation: 'password'
 )
-mary.skip_confirmation!
 mary.save
 
 garrett = User.new(
@@ -21,7 +19,6 @@ garrett = User.new(
   password: 'password',
   password_confirmation: 'password'
 )
-garrett.skip_confirmation!
 garrett.save
 
 # - - - Jobs - - -
