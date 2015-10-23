@@ -1,12 +1,17 @@
 class NetworkController < ApplicationController
+  before_action :get_step
+
   def update
     @job = Job.find(params[:job_id])
     @network = Network.find(params[:id])
     @network.update(network_params)
-    @step = 'network'
   end
 
   private
+
+  def get_step
+    @step = 'networking'
+  end
 
   def network_params
     params

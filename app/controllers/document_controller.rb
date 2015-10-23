@@ -3,7 +3,7 @@ class DocumentController < ApplicationController
     @job = Job.find(params[:job_id])
     @document = Document.find(params[:id])
     @document.update(document_params)
-    @step = 'document'
+    @step = 'documents'
   end
 
   private

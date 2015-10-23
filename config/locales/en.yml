@@ -76,3 +76,6 @@ en:
     notes:
       label: "Notes"
       tooltip: "Never forget!"
+    contacts:
+      label: "Contacts"
+      tooltip: "Relationships: you has them"

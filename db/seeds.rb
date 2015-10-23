@@ -1,23 +1,28 @@
 # - - - Users - - -
 
-scott = User.create!(
+scott = User.new(
   email: 'scott@example.com',
   password: 'password',
   password_confirmation: 'password'
 )
+scott.skip_confirmation!
+scott.save
 
-mary = User.create!(
+mary = User.new(
   email: 'mary@example.com',
   password: 'password',
   password_confirmation: 'password'
 )
+mary.skip_confirmation!
+mary.save
 
-garrett = User.create!(
+garrett = User.new(
   email: 'garrett@example.com',
   password: 'password',
   password_confirmation: 'password'
 )
-
+garrett.skip_confirmation!
+garrett.save
 
 # - - - Jobs - - -
 # job must have a document
