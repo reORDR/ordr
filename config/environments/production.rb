@@ -1,6 +1,6 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { :host => 'reordr.herokuapp.com' }
-  Rails.application.routes.default_url_options[:host] = 'reordr.herokuapp.com'
+  config.action_mailer.default_url_options = { :host => 'www.ordr.es' }
+  Rails.application.routes.default_url_options[:host] = 'www.ordr.es'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
